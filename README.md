@@ -103,10 +103,63 @@ This will create `lib/firebase_options.dart` with your project’s Firebase conf
 
 > **Note:** If you skip this, the app will not run! See [FlutterFire CLI docs](https://firebase.flutter.dev/docs/cli/) for help.
 
+
 ### 4. Run the app
 ```sh
 flutter run
 ```
+
+---
+
+## 📚 Detailed Setup & Usage Guide
+
+### Initial Setup Checklist
+
+1. **Install Flutter SDK**: Make sure you have Flutter installed ([Flutter install guide](https://docs.flutter.dev/get-started/install)).
+2. **Install Dart**: Dart is included with Flutter, but ensure your environment is set up correctly.
+3. **Clone the repository** and run `flutter pub get` to fetch dependencies.
+4. **Set up Firebase** for each platform you intend to use (Android, iOS, Web, etc.).
+5. **Generate `firebase_options.dart`** using the FlutterFire CLI as described above.
+6. **Add platform-specific Firebase config files** (see Getting Started step 3c).
+7. **Run the app** on your desired platform with `flutter run`.
+
+### Running on Different Platforms
+
+- **Android/iOS**: Use a device or emulator. Make sure platform config files are in place.
+- **Web**: Run `flutter run -d chrome` or use VS Code/Android Studio web run options.
+- **Windows/macOS/Linux**: Ensure you have the correct desktop support enabled in Flutter. See [Flutter desktop docs](https://docs.flutter.dev/desktop).
+
+### Common Issues & Troubleshooting
+
+- **Missing `firebase_options.dart`**: Run `flutterfire configure` again. This file is required for Firebase integration.
+- **Firebase config errors**: Double-check that your config files are in the correct locations for each platform.
+- **Dependency issues**: Run `flutter clean` then `flutter pub get`.
+- **Platform build errors**: Make sure you have the latest Flutter and platform SDKs. Run `flutter doctor` to diagnose issues.
+
+### Customization & Development Tips
+
+- **Add new features**: Use the `lib/controllers`, `lib/models`, `lib/views`, and `lib/widgets` folders to organize your code.
+- **UI changes**: Update or add widgets in `lib/widgets` and screens in `lib/views`.
+- **State management**: The app uses Provider. Add new providers or update existing ones in `lib/controllers`.
+- **Local storage**: Use Hive boxes, with one box per user for data isolation.
+- **Sync logic**: See the connectivity and sync controllers for how offline/online sync is handled.
+
+### Testing
+
+- Add tests in the `test/` directory.
+- Run all tests with:
+  ```sh
+  flutter test
+  ```
+
+### Updating Dependencies
+
+- To update all dependencies to the latest compatible versions:
+  ```sh
+  flutter pub upgrade --major-versions
+  ```
+
+---
 
 ---
 
